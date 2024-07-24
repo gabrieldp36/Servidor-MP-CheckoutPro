@@ -1,0 +1,19 @@
+{
+  "name": "servidor-mp",
+  "version": "1.0.0",
+  "description": "Servidor para integración con Mercado Pago",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "Gabriel Domínguez Prado",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mercadopago": "^2.0.10"
+  }
+}
