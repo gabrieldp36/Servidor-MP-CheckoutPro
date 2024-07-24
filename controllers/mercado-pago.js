@@ -12,11 +12,11 @@ const crearPreferencia = async (req = request, res = response) => {
 		const body = {
 			items: req.body.items,
 			back_urls: {
-				"success": "http://localhost:4200/#/resultado-compra",
-				"failure": "http://localhost:4200/#/resultado-compra",
-				"pending": "http://localhost:4200/#/resultado-compra",
+				"success": "https://servidor-mp-checkoutpro.onrender.com/#/resultado-compra",
+				"failure": "https://servidor-mp-checkoutpro.onrender.com/#/resultado-compra",
+				"pending": "https://servidor-mp-checkoutpro.onrender.com/#/resultado-compra",
 			},
-			notification_url: '',
+			notification_url: "https://servidor-mp-checkoutpro.onrender.com/notification-payment",
 			auto_return: "approved",
 		};
 		const preference = new Preference(client);
