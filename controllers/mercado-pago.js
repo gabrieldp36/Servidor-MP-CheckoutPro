@@ -99,8 +99,7 @@ const webhooksMP = async (req = request, res = response) => {
 
 	if (sha === hash) {
 		// Verificación exitosa.
-		console.log( 'Notificación Webhook' );
-		console.log( JSON.stringify(req.body) );
+		console.log(req.body);
 		res.sendStatus(200);
 
 	} else {
@@ -112,8 +111,6 @@ const webhooksMP = async (req = request, res = response) => {
 
 const notificarPago = async (req = request, res = response) => { 
 	try {
-		console.log( 'Notificación Instantánea Pago' );
-		console.log( JSON.stringify(req.body) );
 
 		// Obtenemos el id del pago para solicitar la información del mismo.
 		const { id: paymentID } = req.query;
