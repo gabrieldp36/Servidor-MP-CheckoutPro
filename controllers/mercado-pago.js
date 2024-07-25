@@ -17,6 +17,7 @@ const crearPreferencia = async (req = request, res = response) => {
 				"pending": "https://servidor-mp-checkoutpro.onrender.com/#/resultado-compra",
 			},
 			notification_url: "https://servidor-mp-checkoutpro.onrender.com/api/mercadopago/notification-payment",
+			external_reference: 'MP2811',
 			auto_return: "approved",
 		};
 		const preference = new Preference(client);
