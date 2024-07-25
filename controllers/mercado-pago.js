@@ -5,7 +5,7 @@ const { MercadoPagoConfig, Preference, Payment } = require("mercadopago");
 const client = new MercadoPagoConfig({
 	accessToken: process.env.ACCESSTOKEN,
 	options: {
-		integratorId: 'dev_24c65fb163bf11ea96500242ac130004',
+		integratorId: 'dev_a4ed379c4aab11ef8ec48e07064e3ba4',
 	}
 });
 
