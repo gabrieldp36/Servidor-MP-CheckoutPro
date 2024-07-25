@@ -4,6 +4,9 @@ const { MercadoPagoConfig, Preference, Payment } = require("mercadopago");
 
 const client = new MercadoPagoConfig({
 	accessToken: process.env.ACCESSTOKEN,
+	options: {
+		integratorId: 'dev_24c65fb163bf11ea96500242ac130004',
+	}
 });
 
 const crearPreferencia = async (req = request, res = response) => {
@@ -11,17 +14,35 @@ const crearPreferencia = async (req = request, res = response) => {
 
 		const body = {
 			items: req.body.items,
+			payment_methods: {
+				excluded_payment_methods: [ { id: 'Visa' } ],
+				installments: 6,
+			},
+			payer: {
+				name: 'Lalo',
+				surname: 'Landa',
+				email: 'test_user_63274575@testuser.com',
+				phone: {
+				  area_code: '11',
+				  number: '22223333',
+				},
+				address: {
+				  zip_code: '1111',
+				  street_name: 'Falsa',
+				  street_number: 123,
+				},
+			},
 			back_urls: {
 				"success": "https://servidor-mp-checkoutpro.onrender.com/#/resultado-compra",
 				"failure": "https://servidor-mp-checkoutpro.onrender.com/#/resultado-compra",
 				"pending": "https://servidor-mp-checkoutpro.onrender.com/#/resultado-compra",
 			},
 			notification_url: "https://servidor-mp-checkoutpro.onrender.com/api/mercadopago/notification-payment",
-			external_reference: 'MP2811',
+			external_reference: 'gabrieldominguezprado@gmail.com',
 			auto_return: "approved",
 		};
 		const preference = new Preference(client);
-		const result = await preference.create({body});
+		const result = (await preference.create({body}));
 		res.status(201).json({
 			id: result.id,
 		});
@@ -78,7 +99,8 @@ const webhooksMP = async (req = request, res = response) => {
 
 	if (sha === hash) {
 		// Verificación exitosa.
-		console.log(req.body);
+		console.log( 'Notificación Webhook' );
+		console.log( JSON.stringify(req.body) );
 		res.sendStatus(200);
 
 	} else {
@@ -90,7 +112,9 @@ const webhooksMP = async (req = request, res = response) => {
 
 const notificarPago = async (req = request, res = response) => { 
 	try {
-		
+		console.log( 'Notificación Instantánea Pago' );
+		console.log( JSON.stringify(req.body) );
+
 		// Obtenemos el id del pago para solicitar la información del mismo.
 		const { id: paymentID } = req.query;
 
