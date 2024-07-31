@@ -10,6 +10,8 @@ La misma fue construida siguiendo los lineamientos que peticiona Mercado Libre, 
 
 Pueden visitar la App haciendo click en este link: https://servidor-mp-checkoutpro.onrender.com
 
+**Aclaración: Al ingresar al link que permite visualizar la aplicación, tengan en cuenta que Render en su servicio gratuito puede demorar aproximadamente hasta 50 segundos en reactivar la aplicación, luego de un período de hibernación por inactividad.**
+
 ### Notas:
 
 Para realizar pagos, deben preciosar el boton "Pagar con Mercado Pago" y luego loguearse con la siguiente cuenta de prueba:
