@@ -119,15 +119,19 @@ const notificarPago = async (req = request, res = response) => {
 		const paymentClient = new Payment(client)
 		const payment = await paymentClient.get({ id: paymentID });
 
+		console.log(payment)
+
+
+
 		// Mostramos por consola el detalle actualizado del pago.
-		console.log({
+/* 		console.log({
 			id: payment.id,
 			merchant_number: payment.merchant_number,
 			payment_method: payment.payment_method,
 			status:payment.status,
 			data_approved: payment.date_approved,
 			transaction_amount: payment.transaction_amount
-		});
+		}); */
 
 		// Enviamos la respuesta a MP para avisar que se recepciono correctamente la notificación del pago.
 		res.sendStatus(200);
